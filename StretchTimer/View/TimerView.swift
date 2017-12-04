@@ -1,47 +1,47 @@
 //
-//  ViewController.swift
+//  TimerView.swift
 //  StretchTimer
 //
-//  Created by Kevin on 2017-09-21.
+//  Created by Kevin on 2017-12-04.
 //  Copyright © 2017 Monorail Apps. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class TimerView: UIView {
     let counter = BreakTimer(frame: CGRect.zero)
     var startButton: UIButton!
     var startButtonLbl: UILabel!
+    let screenSize = UIScreen.main.bounds
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        UIApplication.shared.isIdleTimerDisabled = true
-        
-        let screenSize = UIScreen.main.bounds
+    
+    override init(frame: CGRect) {
+        super.init(frame: CGRect(origin: CGPoint.zero, size: CGSize.zero))
         let buttonWidth = screenSize.width
         let buttonHeight = screenSize.height
         let buttonFrame = CGRect(x: (screenSize.width - buttonWidth)/2, y: (screenSize.height - buttonHeight)/2, width: buttonWidth, height: buttonHeight)
         startButton = UIButton(frame: buttonFrame)
         startButton.backgroundColor = UIColor.purple
-        view.addSubview(startButton)
+        self.addSubview(startButton)
         startButtonLbl = UILabel(frame: CGRect(x: (screenSize.width - buttonWidth*0.8)/2, y: (screenSize.height - buttonHeight)/2, width: buttonWidth*0.8 , height: buttonHeight))
         startButtonLbl.font = startButtonLbl.font.withSize(CGFloat(buttonHeight * 0.618))
         let text = NSMutableAttributedString(string: "Start Stretching", attributes: [NSFontAttributeName: UIFont(name: "AvenirNextCondensed-UltraLight", size: 90)!])
         text.addAttribute(NSForegroundColorAttributeName, value: UIColor.white,
-                          range: NSRange(location: 0, length: "Start Stretching".characters.count))
+                          range: NSRange(location: 0, length: "Start Stretching".count))
         startButtonLbl.attributedText = text
         startButtonLbl.adjustsFontSizeToFitWidth = true
         startButtonLbl.textAlignment = .natural
-        view.addSubview(startButtonLbl)
+        self.addSubview(startButtonLbl)
         startButton.addTarget(self, action: #selector(startStretching), for: .touchUpInside)
         counter.delegate = self
         let g = UISwipeGestureRecognizer(target: self, action: #selector(stopStretching(_ :)))
-        self.view.addGestureRecognizer(g)
+        self.addGestureRecognizer(g)
         g.delaysTouchesBegan = true
     }
     
-    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         startStretching()
@@ -59,7 +59,7 @@ class ViewController: UIViewController {
     func startStretching() {
         if counter.counter == 0 || counter.isDone {
             counter.counter = 0
-            view.addSubview(counter)
+            self.addSubview(counter)
             counter.isDone = false
             counter.backgroundColor = UIColor.white
         }
@@ -75,14 +75,10 @@ class ViewController: UIViewController {
         counter.counter = 0
         counter.timeLbl.textColor = UIColor.black
     }
-
 }
 
-extension ViewController: WhatIsNextDelegate {
+extension TimerView: WhatIsNextDelegate {
     func endActions() {
         reset()
     }
 }
-
-
-

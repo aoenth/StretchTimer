@@ -15,6 +15,7 @@
 		0A8422971F7495DB00C93F80 /* StretchTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8422961F7495DB00C93F80 /* StretchTimerTests.swift */; };
 		0A8422A21F7495DB00C93F80 /* StretchTimerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8422A11F7495DB00C93F80 /* StretchTimerUITests.swift */; };
 		0A8422B01F74960A00C93F80 /* BreakTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8422AF1F74960A00C93F80 /* BreakTimer.swift */; };
+		0AECE3BC1FD50E72000BA845 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AECE3BB1FD50E72000BA845 /* TimerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		0A8422A11F7495DB00C93F80 /* StretchTimerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchTimerUITests.swift; sourceTree = "<group>"; };
 		0A8422A31F7495DB00C93F80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A8422AF1F74960A00C93F80 /* BreakTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreakTimer.swift; sourceTree = "<group>"; };
+		0AECE3BB1FD50E72000BA845 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +101,10 @@
 		0A8422801F7495DB00C93F80 /* StretchTimer */ = {
 			isa = PBXGroup;
 			children = (
+				0AECE3BA1FD50E2C000BA845 /* View */,
 				0A8422811F7495DB00C93F80 /* AppDelegate.swift */,
-				0A8422831F7495DB00C93F80 /* ViewController.swift */,
-				0A8422AF1F74960A00C93F80 /* BreakTimer.swift */,
+				0AECE3B91FD50E10000BA845 /* Controller */,
+				0AECE3B71FD50DED000BA845 /* Model */,
 				0A8422851F7495DB00C93F80 /* Main.storyboard */,
 				0A8422881F7495DB00C93F80 /* Assets.xcassets */,
 				0A84228A1F7495DB00C93F80 /* LaunchScreen.storyboard */,
@@ -126,6 +129,30 @@
 				0A8422A31F7495DB00C93F80 /* Info.plist */,
 			);
 			path = StretchTimerUITests;
+			sourceTree = "<group>";
+		};
+		0AECE3B71FD50DED000BA845 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0AECE3B91FD50E10000BA845 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0A8422831F7495DB00C93F80 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0AECE3BA1FD50E2C000BA845 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0AECE3BB1FD50E72000BA845 /* TimerView.swift */,
+				0A8422AF1F74960A00C93F80 /* BreakTimer.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,6 +294,7 @@
 			files = (
 				0A8422841F7495DB00C93F80 /* ViewController.swift in Sources */,
 				0A8422B01F74960A00C93F80 /* BreakTimer.swift in Sources */,
+				0AECE3BC1FD50E72000BA845 /* TimerView.swift in Sources */,
 				0A8422821F7495DB00C93F80 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -520,6 +548,7 @@
 				0A8422A81F7495DB00C93F80 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0A8422A91F7495DB00C93F80 /* Build configuration list for PBXNativeTarget "StretchTimerTests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +557,7 @@
 				0A8422AB1F7495DB00C93F80 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0A8422AC1F7495DB00C93F80 /* Build configuration list for PBXNativeTarget "StretchTimerUITests" */ = {
 			isa = XCConfigurationList;
@@ -536,6 +566,7 @@
 				0A8422AE1F7495DB00C93F80 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
