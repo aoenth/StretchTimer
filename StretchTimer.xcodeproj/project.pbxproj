@@ -14,6 +14,7 @@
 		0A84228C1F7495DB00C93F80 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A84228A1F7495DB00C93F80 /* LaunchScreen.storyboard */; };
 		0A8422971F7495DB00C93F80 /* StretchTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8422961F7495DB00C93F80 /* StretchTimerTests.swift */; };
 		0A8422A21F7495DB00C93F80 /* StretchTimerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8422A11F7495DB00C93F80 /* StretchTimerUITests.swift */; };
+		0A8422B01F74960A00C93F80 /* BreakTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8422AF1F74960A00C93F80 /* BreakTimer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		0A84229D1F7495DB00C93F80 /* StretchTimerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StretchTimerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A8422A11F7495DB00C93F80 /* StretchTimerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchTimerUITests.swift; sourceTree = "<group>"; };
 		0A8422A31F7495DB00C93F80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A8422AF1F74960A00C93F80 /* BreakTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreakTimer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				0A8422811F7495DB00C93F80 /* AppDelegate.swift */,
 				0A8422831F7495DB00C93F80 /* ViewController.swift */,
+				0A8422AF1F74960A00C93F80 /* BreakTimer.swift */,
 				0A8422851F7495DB00C93F80 /* Main.storyboard */,
 				0A8422881F7495DB00C93F80 /* Assets.xcassets */,
 				0A84228A1F7495DB00C93F80 /* LaunchScreen.storyboard */,
@@ -263,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A8422841F7495DB00C93F80 /* ViewController.swift in Sources */,
+				0A8422B01F74960A00C93F80 /* BreakTimer.swift in Sources */,
 				0A8422821F7495DB00C93F80 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
