@@ -25,8 +25,8 @@ class TimerView: UIView {
         self.addSubview(startButton)
         startButtonLbl = UILabel(frame: CGRect(x: (screenSize.width - buttonWidth*0.8)/2, y: (screenSize.height - buttonHeight)/2, width: buttonWidth*0.8 , height: buttonHeight))
         startButtonLbl.font = startButtonLbl.font.withSize(CGFloat(buttonHeight * 0.618))
-        let text = NSMutableAttributedString(string: "Start Stretching", attributes: [NSFontAttributeName: UIFont(name: "AvenirNextCondensed-UltraLight", size: 90)!])
-        text.addAttribute(NSForegroundColorAttributeName, value: UIColor.white,
+        let text = NSMutableAttributedString(string: "Start Stretching", attributes: [NSAttributedStringKey.font: UIFont(name: "AvenirNextCondensed-UltraLight", size: 90)!])
+        text.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.white,
                           range: NSRange(location: 0, length: "Start Stretching".count))
         startButtonLbl.attributedText = text
         startButtonLbl.adjustsFontSizeToFitWidth = true
@@ -44,10 +44,11 @@ class TimerView: UIView {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("touchesBegan!")
         startStretching()
     }
     
-    func stopStretching(_ gestureRecognizer: UIGestureRecognizer) {
+    @objc func stopStretching(_ gestureRecognizer: UIGestureRecognizer) {
         if gestureRecognizer.state == .ended {
             if counter.isTimerOn {
                 counter.playPause()
@@ -56,7 +57,7 @@ class TimerView: UIView {
         }
     }
     
-    func startStretching() {
+    @objc func startStretching() {
         if counter.counter == 0 || counter.isDone {
             counter.counter = 0
             self.addSubview(counter)

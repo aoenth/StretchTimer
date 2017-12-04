@@ -9,16 +9,13 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    var startButton: UIButton!
-    var startButtonLbl: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         UIApplication.shared.isIdleTimerDisabled = true
         
-        
+        view.addSubview(TimerView())
         
     }
     

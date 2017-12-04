@@ -54,7 +54,7 @@ class BreakTimer: UIView {
     }
 
 
-    func updateHeight() {
+    @objc func updateHeight() {
         let updatedValue = (COUNTDOWN - counter) / COUNTDOWN * Double(HEIGHT)
         progressView.frame.origin.y = CGFloat(updatedValue)
         if counter >= COUNTDOWN {
