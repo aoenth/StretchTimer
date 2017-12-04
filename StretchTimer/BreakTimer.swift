@@ -18,7 +18,7 @@ class BreakTimer: UIView {
     let HEIGHT = UIScreen.main.bounds.height
     let WIDTH = UIScreen.main.bounds.width
     var delegate: WhatIsNextDelegate? = nil
-    var COUNTDOWN = Double(1*60)
+    var COUNTDOWN = Double(1*60*60)
     var progressView: UIView!
     var timeLbl: UILabel!
       
@@ -28,11 +28,11 @@ class BreakTimer: UIView {
         progressView = UIView(frame: CGRect(x: 0, y: 0, width: WIDTH, height: HEIGHT))
         progressView.backgroundColor = UIColor.orange
         self.backgroundColor = UIColor.white
-        timeInterval = COUNTDOWN/Double(HEIGHT)
+        timeInterval = COUNTDOWN/Double(HEIGHT)/100
         timeLbl = UILabel(frame: CGRect(x: WIDTH/2-150, y: HEIGHT/2-100, width: 300, height: 200))
         timeLbl.font = UIFont(name: "AvenirNextCondensed-UltraLight", size: 120)
         timeLbl.textAlignment = .center
-        timeLbl.adjustsFontSizeToFitWidth = false
+        timeLbl.adjustsFontSizeToFitWidth = true
         
     }
     
@@ -64,7 +64,7 @@ class BreakTimer: UIView {
             return
         } else {
             counter += timeInterval
-            timeLbl.text = String(format: "%.2f", counter)
+            timeLbl.text = String(format: "%.2f", COUNTDOWN - counter)
             if updatedValue < Double(HEIGHT/2) {
                 timeLbl.textColor = UIColor.white
             }

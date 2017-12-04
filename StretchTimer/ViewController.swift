@@ -27,12 +27,12 @@ class ViewController: UIViewController {
         view.addSubview(startButton)
         startButtonLbl = UILabel(frame: CGRect(x: (screenSize.width - buttonWidth*0.8)/2, y: (screenSize.height - buttonHeight)/2, width: buttonWidth*0.8 , height: buttonHeight))
         startButtonLbl.font = startButtonLbl.font.withSize(CGFloat(buttonHeight * 0.618))
-        let text = NSMutableAttributedString(string: "Start Stretching", attributes: [NSFontAttributeName: UIFont(name: "AvenirNextCondensed-UltraLight", size: 90)!])
+        let text = NSMutableAttributedString(string: "Start", attributes: [NSFontAttributeName: UIFont(name: "AvenirNextCondensed-UltraLight", size: 90)!])
         text.addAttribute(NSForegroundColorAttributeName, value: UIColor.white,
-                          range: NSRange(location: 0, length: "Start Stretching".characters.count))
+                          range: NSRange(location: 0, length: "Start".count))
         startButtonLbl.attributedText = text
         startButtonLbl.adjustsFontSizeToFitWidth = true
-        startButtonLbl.textAlignment = .natural
+        startButtonLbl.textAlignment = .center
         view.addSubview(startButtonLbl)
         startButton.addTarget(self, action: #selector(startStretching), for: .touchUpInside)
         counter.delegate = self
