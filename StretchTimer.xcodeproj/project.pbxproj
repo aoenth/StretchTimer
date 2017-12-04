@@ -15,7 +15,10 @@
 		0A8422971F7495DB00C93F80 /* StretchTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8422961F7495DB00C93F80 /* StretchTimerTests.swift */; };
 		0A8422A21F7495DB00C93F80 /* StretchTimerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8422A11F7495DB00C93F80 /* StretchTimerUITests.swift */; };
 		0A8422B01F74960A00C93F80 /* BreakTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8422AF1F74960A00C93F80 /* BreakTimer.swift */; };
-		0AECE3BC1FD50E72000BA845 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AECE3BB1FD50E72000BA845 /* TimerView.swift */; };
+		0A8C5E971FD5A44B00618865 /* StartButtonLbl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8C5E961FD5A44B00618865 /* StartButtonLbl.swift */; };
+		0A8C5E991FD5CE4100618865 /* ButtonScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8C5E981FD5CE4100618865 /* ButtonScreenSize.swift */; };
+		0A8C5E9B1FD5FDD800618865 /* ColorGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8C5E9A1FD5FDD800618865 /* ColorGenerator.swift */; };
+		0AECE3BC1FD50E72000BA845 /* StartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AECE3BB1FD50E72000BA845 /* StartButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +53,10 @@
 		0A8422A11F7495DB00C93F80 /* StretchTimerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchTimerUITests.swift; sourceTree = "<group>"; };
 		0A8422A31F7495DB00C93F80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A8422AF1F74960A00C93F80 /* BreakTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreakTimer.swift; sourceTree = "<group>"; };
-		0AECE3BB1FD50E72000BA845 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		0A8C5E961FD5A44B00618865 /* StartButtonLbl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartButtonLbl.swift; sourceTree = "<group>"; };
+		0A8C5E981FD5CE4100618865 /* ButtonScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonScreenSize.swift; sourceTree = "<group>"; };
+		0A8C5E9A1FD5FDD800618865 /* ColorGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGenerator.swift; sourceTree = "<group>"; };
+		0AECE3BB1FD50E72000BA845 /* StartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,8 +155,11 @@
 		0AECE3BA1FD50E2C000BA845 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0AECE3BB1FD50E72000BA845 /* TimerView.swift */,
+				0AECE3BB1FD50E72000BA845 /* StartButton.swift */,
+				0A8C5E961FD5A44B00618865 /* StartButtonLbl.swift */,
 				0A8422AF1F74960A00C93F80 /* BreakTimer.swift */,
+				0A8C5E981FD5CE4100618865 /* ButtonScreenSize.swift */,
+				0A8C5E9A1FD5FDD800618865 /* ColorGenerator.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -297,7 +306,10 @@
 			files = (
 				0A8422841F7495DB00C93F80 /* ViewController.swift in Sources */,
 				0A8422B01F74960A00C93F80 /* BreakTimer.swift in Sources */,
-				0AECE3BC1FD50E72000BA845 /* TimerView.swift in Sources */,
+				0AECE3BC1FD50E72000BA845 /* StartButton.swift in Sources */,
+				0A8C5E971FD5A44B00618865 /* StartButtonLbl.swift in Sources */,
+				0A8C5E991FD5CE4100618865 /* ButtonScreenSize.swift in Sources */,
+				0A8C5E9B1FD5FDD800618865 /* ColorGenerator.swift in Sources */,
 				0A8422821F7495DB00C93F80 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

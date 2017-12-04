@@ -18,7 +18,7 @@ class BreakTimer: UIView {
     let HEIGHT = UIScreen.main.bounds.height
     let WIDTH = UIScreen.main.bounds.width
     var delegate: WhatIsNextDelegate? = nil
-    var COUNTDOWN = Double(1*60)
+    var countdown = Double(1*60)
     var progressView: UIView!
     var timeLbl: UILabel!
       
@@ -28,12 +28,11 @@ class BreakTimer: UIView {
         progressView = UIView(frame: CGRect(x: 0, y: 0, width: WIDTH, height: HEIGHT))
         progressView.backgroundColor = UIColor.orange
         self.backgroundColor = UIColor.white
-        timeInterval = COUNTDOWN/Double(HEIGHT)
+        timeInterval = countdown/Double(HEIGHT)
         timeLbl = UILabel(frame: CGRect(x: WIDTH/2-150, y: HEIGHT/2-100, width: 300, height: 200))
         timeLbl.font = UIFont(name: "AvenirNextCondensed-UltraLight", size: 120)
         timeLbl.textAlignment = .center
         timeLbl.adjustsFontSizeToFitWidth = false
-        
     }
     
 
@@ -55,9 +54,9 @@ class BreakTimer: UIView {
 
 
     @objc func updateHeight() {
-        let updatedValue = (COUNTDOWN - counter) / COUNTDOWN * Double(HEIGHT)
+        let updatedValue = (countdown - counter) / countdown * Double(HEIGHT)
         progressView.frame.origin.y = CGFloat(updatedValue)
-        if counter >= COUNTDOWN {
+        if counter >= countdown {
             timer?.invalidate()
             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
             delegate?.endActions()
@@ -69,6 +68,33 @@ class BreakTimer: UIView {
                 timeLbl.textColor = UIColor.white
             }
             self.addSubview(timeLbl)
+        }
+    }
+    
+    func setCountdownLength(countdown: Double) {
+        self.countdown = countdown
+    }
+    
+    func reset() {
+        backgroundColor = UIColor.clear
+        isDone = true
+        isTimerOn = false
+        progressView.removeFromSuperview()
+        timeLbl.text = ""
+        counter = 0
+        timeLbl.textColor = UIColor.black
+    }
+    
+    func getCountdownLength(location: CGPoint, divisions: Int) -> Double {
+        let yValue = location.y
+        let location = ButtonScreenSize.getY(y: yValue, divisions: divisions)
+        switch location {
+        case 0:
+            return 600.0
+        case 1:
+            return 3600.0
+        default:
+            return 60.0
         }
     }
     
