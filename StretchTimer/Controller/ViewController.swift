@@ -34,8 +34,6 @@ class ViewController: UIViewController {
             self.view.addSubview(startButtonLbl)
         }
         
-
-        counter.delegate = self
         let g = UISwipeGestureRecognizer(target: self, action: #selector(stopStretching(_ :)))
         self.view.addGestureRecognizer(g)
         g.delaysTouchesBegan = true
@@ -48,7 +46,13 @@ class ViewController: UIViewController {
             let countdownLength = counter.getCountdownLength(location: choice!, divisions: numberOfButtons)
             counter.setCountdownLength(countdown: countdownLength)
         }
-        startStretching()
+        if counter.counter == 0 || counter.isDone {
+            counter.counter = 0
+            self.view.addSubview(counter)
+            counter.isDone = false
+            counter.backgroundColor = UIColor.white
+        }
+        counter.playPause()
     }
     
     @objc func stopStretching(_ gestureRecognizer: UIGestureRecognizer) {
@@ -60,23 +64,7 @@ class ViewController: UIViewController {
         }
     }
     
-    @objc func startStretching() {
-        if counter.counter == 0 || counter.isDone {
-            counter.counter = 0
-            self.view.addSubview(counter)
-            counter.isDone = false
-            counter.backgroundColor = UIColor.white
-        }
-        counter.playPause()
-    }
-    
 
-    
 }
 
-extension ViewController: WhatIsNextDelegate {
-    func endActions() {
-        counter.reset()
-    }
-}
 

@@ -17,7 +17,6 @@ class BreakTimer: UIView {
     var timeInterval: Double!
     let HEIGHT = UIScreen.main.bounds.height
     let WIDTH = UIScreen.main.bounds.width
-    var delegate: WhatIsNextDelegate? = nil
     var countdown = Double(1*60)
     var progressView: UIView!
     var timeLbl: UILabel!
@@ -60,7 +59,7 @@ class BreakTimer: UIView {
         if counter >= countdown {
             timer?.invalidate()
             AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
-            delegate?.endActions()
+            reset()
             return
         } else {
             counter += timeInterval
@@ -102,6 +101,3 @@ class BreakTimer: UIView {
     
 }
 
-protocol WhatIsNextDelegate {
-    func endActions()
-}
