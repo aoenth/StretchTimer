@@ -11,12 +11,13 @@ import UIKit
 class ColorGenerator {
     static func generateColors(numberOfColors: Int) -> [UIColor] {
         let numberOfColorsInt = UInt32(numberOfColors)
-        let randomNumber = arc4random_uniform(numberOfColorsInt)
         var colors = [UIColor]()
         var color: UIColor
         var i = 0
         while(i < numberOfColors) {
-            switch randomNumber % 6 {
+            var randomNumber = arc4random_uniform(numberOfColorsInt)
+            randomNumber = randomNumber > 6 ? 6 : randomNumber
+            switch randomNumber {
             case 0:
                 color = UIColor.blue
             case 1:
@@ -34,6 +35,7 @@ class ColorGenerator {
                 colors.append(color)
                 i += 1
             }
+
         }
         return colors
     }

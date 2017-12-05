@@ -11,26 +11,29 @@ import UIKit
 class ViewController: UIViewController {
     let counter = BreakTimer(frame: CGRect.zero)
     let screenSize = UIScreen.main.bounds
-    var buttons = [StartButton]()
-    let numberOfButtons = 2
+    let numberOfButtons = 3
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         UIApplication.shared.isIdleTimerDisabled = true
 
-//        let buttonColors = ColorGenerator.generateColors(numberOfColors: numberOfButtons)
-//        print("buttonColors: ", buttonColors[0])
+        let buttonColors = ColorGenerator.generateColors(numberOfColors: numberOfButtons)
+        let labelTitles = [0:"Break", 1:"Read", 2:"Stretch"]
+        let breakTimes = [0:600.0, 1:3600.0, 2:60.0]
+        counter.setBreakTimes(breakTimes: breakTimes)
+
         for i in 0..<numberOfButtons {
             let tempRect = ButtonScreenSize.rect(location: i, divisions: numberOfButtons)
             let startButton = StartButton(frame: tempRect)
-//            startButton.backgroundColor = buttonColors[i]
+            startButton.backgroundColor = buttonColors[i]
+            let startButtonLbl = StartButtonLbl(frame: tempRect)
+            startButtonLbl.setString(labelString: labelTitles[i]!)
+            startButtonLbl.reflectFontColor(color: buttonColors[i])
             self.view.addSubview(startButton)
-            buttons.append(startButton)
+            self.view.addSubview(startButtonLbl)
         }
         
-//        let startButtonLbl = StartButtonLbl(frame: CGRect.zero)
-//        self.view.addSubview(startButtonLbl)
 
         counter.delegate = self
         let g = UISwipeGestureRecognizer(target: self, action: #selector(stopStretching(_ :)))

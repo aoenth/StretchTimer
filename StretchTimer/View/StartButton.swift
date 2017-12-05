@@ -21,24 +21,6 @@ class StartButton: UIView {
             buttonFrame = frame
         }
         super.init(frame: buttonFrame)
-        
-        let randomNumber = arc4random_uniform(6)
-        var backgroundColor: UIColor
-        switch randomNumber {
-        case 0:
-            backgroundColor = UIColor.blue
-        case 1:
-            backgroundColor = UIColor.red
-        case 2:
-            backgroundColor = UIColor.green
-        case 3:
-            backgroundColor = UIColor.cyan
-        case 4:
-            backgroundColor = UIColor.yellow
-        default:
-            backgroundColor = UIColor.magenta
-        }
-        self.backgroundColor = backgroundColor
 
         self.layer.cornerRadius = 5
     }

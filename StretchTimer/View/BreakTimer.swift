@@ -21,6 +21,7 @@ class BreakTimer: UIView {
     var countdown = Double(1*60)
     var progressView: UIView!
     var timeLbl: UILabel!
+    var breakTimes: Dictionary<Int, Double>?
       
     override init(frame: CGRect) {
         super.init(frame: CGRect(x: 0, y: 0, width: WIDTH, height: HEIGHT))
@@ -32,7 +33,7 @@ class BreakTimer: UIView {
         timeLbl = UILabel(frame: CGRect(x: WIDTH/2-150, y: HEIGHT/2-100, width: 300, height: 200))
         timeLbl.font = UIFont(name: "AvenirNextCondensed-UltraLight", size: 120)
         timeLbl.textAlignment = .center
-        timeLbl.adjustsFontSizeToFitWidth = false
+        timeLbl.adjustsFontSizeToFitWidth = true
     }
     
 
@@ -63,7 +64,7 @@ class BreakTimer: UIView {
             return
         } else {
             counter += timeInterval
-            timeLbl.text = String(format: "%.2f", counter)
+            timeLbl.text = String(format: "%.2f", countdown-counter)
             if updatedValue < Double(HEIGHT/2) {
                 timeLbl.textColor = UIColor.white
             }
@@ -88,14 +89,15 @@ class BreakTimer: UIView {
     func getCountdownLength(location: CGPoint, divisions: Int) -> Double {
         let yValue = location.y
         let location = ButtonScreenSize.getY(y: yValue, divisions: divisions)
-        switch location {
-        case 0:
-            return 600.0
-        case 1:
-            return 3600.0
-        default:
+        if let countdownLength = breakTimes![location] {
+            return countdownLength
+        } else {
             return 60.0
         }
+    }
+    
+    func setBreakTimes(breakTimes: Dictionary<Int, Double>) {
+        self.breakTimes = breakTimes
     }
     
 }
